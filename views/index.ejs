@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chintan Suthar</title>
+    <%- include("./indexStyle") %>
+  </head>
+  <body>
+    <div class="add-post">
+      <a href="/create?token=<%= token%>" style="height: 40px">
+        <img
+          src="add.png"
+          alt="create new blog"
+          height="40px"
+          width="40px"
+        />
+      </a>
+    </div>
+    <header>
+      <div id="btns">
+        <a href="/user/login"><button>Log in</button></a>
+        <a href="/user/signin"><button>Sign in</button></a>
+      </div>
+      <!-- <div class="profile-image"></div> -->
+      <div class="profile-name"><%= username%></div>
+      <div class="subtext">Welcome to my blogs!</div>
+    </header>
+    <div class="main">
+      <div class="main-container">
+          <% if(blogs.length){ %>
+            <%blogs.forEach((blog) => { %>
+              <a href="/blogs/<%= blog._id%>?token=<%= token%>" >
+                <div class="post">
+                    <img src="/uploads/<%= blog.image %>" id="post-image" >
+                    <div class="post-content">
+                        <div class="post-content-title"><%= blog.title %></div>
+                        <div class="post-content-text"><%= blog.body %></div>
+                    </div>
+                </div>
+              </a>
+             <% }) %>
+          <% } else { %>
+            <div class="post">
+                <div class="post-content">
+                    <div class="post-content-title">No blogs</div>
+                    <div class="post-content-text"></div>
+                </div>
+            </div>
+          <% } %>
+      </div>
+    </div>
+    <footer>
+        <p>Made with &#x1F9E1; by Chintan Suthar</p>
+    </footer>
+  </body>
+</html>

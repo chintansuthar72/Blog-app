@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in</title>
+    <%- include("./loginStyle") %>
+</head>
+<body>
+    <div class="log-in">
+        <form action="/user/login" method="POST">
+            <div id="email">
+                <label for="email">Email : </label>
+                <input id="email" type="email" name="email" >
+            </div>
+            <div id="password">
+                <label for="password"> Password : </label>
+                <input id="password" type="password" name="password">
+            </div>
+            <div id="submit">
+                <input type="submit" value="Log in">
+            </div>
+        </form>
+        <div class="not-a-user">
+            <div>
+                <p>Not a user ?</p>
+            </div>
+            <div>
+                <button><a href="/user/signin" style="text-decoration: none;">Sign in</a></button>
+            </div>
+        </div>
+        <div class="message"><%=message%></div>
+    </div>
+</body>
+</html>

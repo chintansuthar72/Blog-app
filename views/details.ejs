@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog post</title>
+    <%- include("./detailsStyle") %>
+  </head>
+  <body>
+    <div class="main">
+      <div id="btns">
+        <div class="btn">
+            <a  href="/blogs?token=<%= token%>"><button>Back</button></a>
+        </div>
+        <div class="btn" >
+          <a id="update" href="/blogs/update/<%= blog._id %>?token=<%= token%>"><button>Update</button></a>
+        </div>
+        <div class="btn" >
+          <a data-id= <%= blog._id %> data-token= <%= token %> id="delete" href="/blogs?token=<%= token %>"><button>Delete</button></a>
+        </div>
+      </div>
+      <div id="post-pic">
+        <div id="post-image" data-image = <%= blog.image %>></div>
+      </div>
+        <div id="post-title"><%= blog.title %></div>
+        <div id="post-content">
+          <p><%= blog.body %></p>
+        </div>
+    </div>
+    <footer>
+        <p>Made with &#x1F9E1; by Chintan Suthar</p>
+    </footer>
+
+    <script>
+      const postImage = document.getElementById("post-image");
+      postImage.style.backgroundImage = `url("/uploads/${postImage.dataset.image}")`
+
+      const deleteButton = document.querySelector('#delete');
+      deleteButton.addEventListener('click', (e) => {
+        fetch(`/blogs/${deleteButton.dataset.id}?token=${deleteButton.dataset.token}`, {method : 'DELETE'})
+         .then(res => res.json())
+         .then(res => {
+            window.location.href = res.redirect
+         }) .catch(err => console.log(err));
+      })
+    </script>
+
+  </body>
+</html>

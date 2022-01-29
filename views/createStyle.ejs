@@ -1,0 +1,115 @@
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    header {
+        background-color:blue;
+        color:rgb(255, 255, 255);
+        height: 250px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+    }
+
+    header > * {
+        z-index: 1;
+    }
+
+    header::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        background-color: rgba(0,0,0,0.6);
+    }
+
+    .profile-name {
+        font-size: 3em;
+        font-weight: bold;
+    }
+
+    .subtext {
+        margin-top: 8px;
+    }
+
+    .main {
+        margin: 5vh 20vh 5vh 20vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    button{
+        border: none;
+        background-color: white;
+        cursor: pointer;
+        color: blue;
+        font-size: medium;
+        font-weight: 700;
+    }
+
+    #btn {
+        height: 30px;
+        width: 80px;
+        border: 2px solid blue;
+        border-radius: 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #title,
+    #image {
+        display: inline-block;
+        border: 2px solid #adb5bd;
+        border-radius: 8px;
+        padding: 5px;
+        margin-top: 8px;
+        margin-bottom: 8px;
+        font-size: small;
+    }
+
+    #content {
+        border: 2px solid #adb5bd;
+        border-radius: 8px;
+        padding: 4px;
+        overflow: hidden;
+        font-size: medium;
+        display: block;
+    }
+
+    #submit{
+        margin-top: 8px;
+        margin-bottom: 8px;
+        background-color: blue;
+        color:white;
+        border: none;
+        padding: 7px 10px;
+        font-size: small;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    footer {
+        position:fixed;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        min-height: 30px;
+        background-color: black;
+        color:#fcfeff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 40px;
+        font-size: 13px;
+    }
+</style>
