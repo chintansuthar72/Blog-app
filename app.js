@@ -39,8 +39,8 @@ const upload = multer({
 mongoose.connect(process.env.DATABASE_URL)
     .then((result)=>{
         console.log("connected to database...");
-        app.listen(process.env.PORT,'localhost',()=>{
-            console.log("listening on port " + process.env.PORT);
+        app.listen(process.env.PORT || 3000,()=>{
+            console.log("listening on port");
         })
     }) .catch((error)=>{
         console.log(error);
